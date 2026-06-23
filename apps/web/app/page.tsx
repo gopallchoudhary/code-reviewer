@@ -1,4 +1,5 @@
 import { Button } from "@repo/ui/components/ui/button";
+import { ModeToggle } from "@repo/ui/components/ui/mode-toggle";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <div className="flex gap-2">
         <Button>Get Started</Button>
         <Button variant="outline">Learn More</Button>
+        <ModeToggle />
       </div>
     </div>
   );
