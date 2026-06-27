@@ -28,7 +28,7 @@ export async function signInWithGithub(formData: FormData) {
 }
 
 
-export async function getSeverSession() {
+export async function getServerSession() {
     return await auth.api.getSession({
         headers: await headers()
     })
@@ -36,7 +36,7 @@ export async function getSeverSession() {
 
 
 export async function requireAuth(redirectTo = SIGN_IN_PATH) {
-    const session = await getSeverSession()
+    const session = await getServerSession()
 
     if (!session) {
         redirect(redirectTo)
@@ -46,7 +46,7 @@ export async function requireAuth(redirectTo = SIGN_IN_PATH) {
 }
 
 export async function requireUnAuth(redirectTo = DEFAULT_AUTH_CALLBACK) {
-    const session = await getSeverSession()
+    const session = await getServerSession()
 
     if (session) {
         redirect(redirectTo)
