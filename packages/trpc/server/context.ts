@@ -1,13 +1,9 @@
+import { auth } from '@repo/auth'
 
 
-export interface tRPCContext {
-
-}
-
-
-export async function createContext() {
-    const ctx: tRPCContext = {}
-    return ctx
+export async function createContext(opts: { headers: Headers }) {
+    const session = await auth.api.getSession({headers: opts.headers})
+    return {session}
 }
 
 export type Context = Awaited<ReturnType<typeof createContext>>;

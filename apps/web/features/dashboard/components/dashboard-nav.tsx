@@ -1,6 +1,6 @@
+"use client"
 import { GithubIcon } from "../../auth/components/github-sign-in-form";
 
-("use client");
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";

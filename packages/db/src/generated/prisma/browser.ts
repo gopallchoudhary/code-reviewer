@@ -28,6 +28,11 @@ export type Test = Prisma.TestModel
  */
 export type User = Prisma.UserModel
 /**
+ * Model GithubInstallation
+ * 
+ */
+export type GithubInstallation = Prisma.GithubInstallationModel
+/**
  * Model Session
  * 
  */
