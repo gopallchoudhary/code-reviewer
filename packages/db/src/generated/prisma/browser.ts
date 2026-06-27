@@ -33,6 +33,11 @@ export type User = Prisma.UserModel
  */
 export type GithubInstallation = Prisma.GithubInstallationModel
 /**
+ * Model PullRequest
+ * 
+ */
+export type PullRequest = Prisma.PullRequestModel
+/**
  * Model Session
  * 
  */

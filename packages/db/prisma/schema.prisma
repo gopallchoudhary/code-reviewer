@@ -18,32 +18,54 @@ model Test {
 }
 
 model User {
-  id                String             @id
-  name              String
-  email             String
-  emailVerified     Boolean            @default(false)
-  image             String?
-  createdAt         DateTime           @default(now())
-  updatedAt         DateTime           @updatedAt
-  sessions          Session[]
-  accounts          Account[]
+  id                 String              @id
+  name               String
+  email              String
+  emailVerified      Boolean             @default(false)
+  image              String?
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  sessions           Session[]
+  accounts           Account[]
   githubInstallation GithubInstallation?
+  pullRequests       PullRequest[]
 
   @@unique([email])
   @@map("user")
 }
 
 model GithubInstallation {
-  id             String @id @default(cuid())
-  userId         String @unique
-  user           User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id             String   @id @default(cuid())
+  userId         String   @unique
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   installationId Int
   accountLogin   String?
   accountType    String?
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 
-  @@map("github_installation")  
+  @@map("github_installation")
+}
+
+model PullRequest {
+  id             String    @id @default(cuid())
+  installationId Int
+  repoFullName   String
+  prNumber       Int
+  title          String
+  authorLogin    String?
+  headSha        String // latest commit on the pr branch
+  user           User?     @relation(fields: [userId], references: [id])
+  userId         String?
+  baseBranch     String
+  status         String    @default("pending") // pending | processing | reviewed | rate_limited
+  reviewComments String? // AI generated markdown saved after review completes
+  reviewedAt     DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@unique([repoFullName, prNumber])
+  @@map("pull_request")
 }
 
 model Session {

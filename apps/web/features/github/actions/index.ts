@@ -8,7 +8,7 @@ export async function disconnectGithubApp() {
     const session = await getServerSession()
 
     if (!session) {
-        redirect('sign-in')
+        redirect('/sign-in')
     }
 
     await deleteInstallation(session.user.id)
