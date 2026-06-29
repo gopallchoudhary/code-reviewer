@@ -14,6 +14,10 @@
 	"dependencies": {
 		"@repo/auth": "workspace:*",
 		"@repo/db": "workspace:*",
+		"@repo/github": "workspace:*",
+		"@repo/ai": "workspace:*",
+		"@repo/vector-db": "workspace:*",
+		"@repo/jobs": "workspace:*",
 		"zod": "^4.4.3"
 	}
 }

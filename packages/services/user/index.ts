@@ -1,10 +1,24 @@
-import {auth} from '@repo/auth'
+import { auth } from '@repo/auth'
+import { prisma } from '@repo/db';
 
 
 class UserService {
 
-    public async getUserSession() {
-        return await auth.api.getSession()
+    public async getUserInstallationId(userId: string) {
+        const user = await prisma.githubInstallation.findFirst({
+            where: {
+                userId,
+            },
+            select: {
+                installationId: true,
+            },
+        })
+
+        if (!user) {
+            return null
+        }
+
+        return user.installationId
     }
 }
 

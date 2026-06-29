@@ -31,6 +31,9 @@
     "radix-ui": "^1.6.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "sonner": "^2.0.7",
+    "table": "^6.9.0",
+    "tabs": "^0.2.0",
     "tailwind-merge": "^3.6.0"
   }
 }

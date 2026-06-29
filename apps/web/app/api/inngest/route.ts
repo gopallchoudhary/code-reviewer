@@ -1,6 +1,6 @@
-import { inngest, serve, processTask } from "@repo/jobs";
+import { inngest, serve, processTask, reviewPullRequest, syncRepoCodeBase } from "@repo/jobs";
 
 export const { GET, POST, PUT } = serve({
     client: inngest,
-    functions: [processTask],
+    functions: [processTask, reviewPullRequest, syncRepoCodeBase],
 });

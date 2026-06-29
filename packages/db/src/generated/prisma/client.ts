@@ -62,6 +62,11 @@ export type GithubInstallation = Prisma.GithubInstallationModel
  */
 export type PullRequest = Prisma.PullRequestModel
 /**
+ * Model RepoSync
+ * 
+ */
+export type RepoSync = Prisma.RepoSyncModel
+/**
  * Model Session
  * 
  */
