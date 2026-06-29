@@ -388,6 +388,7 @@ export const ModelName = {
   User: 'User',
   GithubInstallation: 'GithubInstallation',
   PullRequest: 'PullRequest',
+  RepoSync: 'RepoSync',
   Session: 'Session',
   Account: 'Account',
   Verification: 'Verification'
@@ -406,7 +407,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "test" | "user" | "githubInstallation" | "pullRequest" | "session" | "account" | "verification"
+    modelProps: "test" | "user" | "githubInstallation" | "pullRequest" | "repoSync" | "session" | "account" | "verification"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -703,6 +704,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.PullRequestCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.PullRequestCountAggregateOutputType> | number
+        }
+      }
+    }
+    RepoSync: {
+      payload: Prisma.$RepoSyncPayload<ExtArgs>
+      fields: Prisma.RepoSyncFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.RepoSyncFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RepoSyncPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.RepoSyncFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RepoSyncPayload>
+        }
+        findFirst: {
+          args: Prisma.RepoSyncFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RepoSyncPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.RepoSyncFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RepoSyncPayload>
+        }
+        findMany: {
+          args: Prisma.RepoSyncFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RepoSyncPayload>[]
+        }
+        create: {
+          args: Prisma.RepoSyncCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RepoSyncPayload>
+        }
+        createMany: {
+          args: Prisma.RepoSyncCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.RepoSyncCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RepoSyncPayload>[]
+        }
+        delete: {
+          args: Prisma.RepoSyncDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RepoSyncPayload>
+        }
+        update: {
+          args: Prisma.RepoSyncUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RepoSyncPayload>
+        }
+        deleteMany: {
+          args: Prisma.RepoSyncDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.RepoSyncUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.RepoSyncUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RepoSyncPayload>[]
+        }
+        upsert: {
+          args: Prisma.RepoSyncUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RepoSyncPayload>
+        }
+        aggregate: {
+          args: Prisma.RepoSyncAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateRepoSync>
+        }
+        groupBy: {
+          args: Prisma.RepoSyncGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RepoSyncGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.RepoSyncCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RepoSyncCountAggregateOutputType> | number
         }
       }
     }
@@ -1021,6 +1096,21 @@ export const PullRequestScalarFieldEnum = {
 export type PullRequestScalarFieldEnum = (typeof PullRequestScalarFieldEnum)[keyof typeof PullRequestScalarFieldEnum]
 
 
+export const RepoSyncScalarFieldEnum = {
+  id: 'id',
+  installationId: 'installationId',
+  repoFullName: 'repoFullName',
+  branch: 'branch',
+  status: 'status',
+  chunkCount: 'chunkCount',
+  syncedAt: 'syncedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RepoSyncScalarFieldEnum = (typeof RepoSyncScalarFieldEnum)[keyof typeof RepoSyncScalarFieldEnum]
+
+
 export const SessionScalarFieldEnum = {
   id: 'id',
   expiresAt: 'expiresAt',
@@ -1272,6 +1362,7 @@ export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
   githubInstallation?: Prisma.GithubInstallationOmit
   pullRequest?: Prisma.PullRequestOmit
+  repoSync?: Prisma.RepoSyncOmit
   session?: Prisma.SessionOmit
   account?: Prisma.AccountOmit
   verification?: Prisma.VerificationOmit

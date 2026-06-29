@@ -55,6 +55,7 @@ export const ModelName = {
   User: 'User',
   GithubInstallation: 'GithubInstallation',
   PullRequest: 'PullRequest',
+  RepoSync: 'RepoSync',
   Session: 'Session',
   Account: 'Account',
   Verification: 'Verification'
@@ -128,6 +129,21 @@ export const PullRequestScalarFieldEnum = {
 } as const
 
 export type PullRequestScalarFieldEnum = (typeof PullRequestScalarFieldEnum)[keyof typeof PullRequestScalarFieldEnum]
+
+
+export const RepoSyncScalarFieldEnum = {
+  id: 'id',
+  installationId: 'installationId',
+  repoFullName: 'repoFullName',
+  branch: 'branch',
+  status: 'status',
+  chunkCount: 'chunkCount',
+  syncedAt: 'syncedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type RepoSyncScalarFieldEnum = (typeof RepoSyncScalarFieldEnum)[keyof typeof RepoSyncScalarFieldEnum]
 
 
 export const SessionScalarFieldEnum = {

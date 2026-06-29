@@ -1,0 +1,25 @@
+{
+    "name": "@repo/ai",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "main": "./src/index.ts",
+    "types": "./src/index.ts",
+    "exports": {
+        ".": "./src/index.ts"
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "check-types": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@openrouter/ai-sdk-provider": "^2.10.0",
+        "@repo/db": "workspace:*",
+        "ai": "^7.0.4"
+    },
+    "devDependencies": {
+        "@repo/typescript-config": "workspace:*",
+        "@types/node": "^22.15.3",
+        "typescript": "^5.5.0"
+    }
+}
